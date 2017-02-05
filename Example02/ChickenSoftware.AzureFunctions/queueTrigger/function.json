@@ -9,7 +9,7 @@
     },
     {
       "type": "table",
-      "name": "outputTable",
+      "name": "outTable",
       "tableName": "person",
       "connection": "",
       "direction": "out"
