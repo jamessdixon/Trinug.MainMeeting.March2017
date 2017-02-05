@@ -8,8 +8,9 @@ let encodeString (currentString:string) =
     Encoding.UTF8.GetString(bytes)
    
 let accessToken = "165481117-wufmGDLMtiVcePDdpJhICdeQ2u9i1ciUlayIWYqQ"
-let accessTokenSecret = "	n7f4N09LJkIQ6ZbU1IGLfzE6TVUddKs8WHQN0oevBNCsu"
+let accessTokenSecret = "n7f4N09LJkIQ6ZbU1IGLfzE6TVUddKs8WHQN0oevBNCsu"
 let authString = "Basic " + encodeString(accessToken) + " " + encodeString(accessTokenSecret)
+
 
 let uri = @"https://api.twitter.com/oauth2/token"
 let authClient = new WebClient()
