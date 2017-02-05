@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{33AD0EE8-D99B-4E14-8CD9-3F56ABEF97A2}") = "ChickenSoftware.TwitterAnalyzer", "ChickenSoftware.TwitterAnalyzer\ChickenSoftware.TwitterAnalyzer.funproj", "{4FB94BC0-646F-4E97-BAAE-C8710B3C7B0C}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TwitterPoC", "TwitterPoC\TwitterPoC.fsproj", "{BBDB1737-D701-4A15-B33F-2BF50B2CC404}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4FB94BC0-646F-4E97-BAAE-C8710B3C7B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FB94BC0-646F-4E97-BAAE-C8710B3C7B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FB94BC0-646F-4E97-BAAE-C8710B3C7B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBDB1737-D701-4A15-B33F-2BF50B2CC404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBDB1737-D701-4A15-B33F-2BF50B2CC404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBDB1737-D701-4A15-B33F-2BF50B2CC404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBDB1737-D701-4A15-B33F-2BF50B2CC404}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

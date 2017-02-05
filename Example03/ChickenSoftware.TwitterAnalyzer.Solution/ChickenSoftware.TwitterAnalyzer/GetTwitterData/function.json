@@ -2,10 +2,17 @@
   "disabled": false,
   "bindings": [
     {
-      "name": "myTimer",
+      "name": "timerInfo",
       "type": "timerTrigger",
       "direction": "in",
       "schedule": "0 1 * * * *"
+    },
+    {
+      "name": "queueItem",
+      "queueName": "tweets-raw",
+      "connection": "",
+      "type": "queue",
+      "direction": "out"
     }
   ]
 }
