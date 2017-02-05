@@ -70,9 +70,7 @@ public static String GetQueryResult()
 
 public static void Run(TimerInfo timerInfo, out string queueItem)
 {
-    var statuses = JsonConvert.DeserializeObject<dynamic>(responseJson);
-    foreach (var status in statuses)
-    {
-        queueItem = JsonConvert.SerializeObject(status);
-    }
+    //Messages cannot be larger than 65536 bytes.
+    String results = GetQueryResult();
+    queueItem = results.Substring(0, 32767);
 }
