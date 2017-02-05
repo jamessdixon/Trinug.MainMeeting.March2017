@@ -1,0 +1,19 @@
+﻿{
+  "bindings": [
+    {
+      "name": "queueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "person",
+      "connection": ""
+    },
+    {
+      "type": "table",
+      "name": "outputTable",
+      "tableName": "person",
+      "connection": "",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
