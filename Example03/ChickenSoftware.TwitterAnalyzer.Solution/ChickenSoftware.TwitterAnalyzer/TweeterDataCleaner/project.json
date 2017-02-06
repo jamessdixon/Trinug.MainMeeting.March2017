@@ -1,0 +1,9 @@
+﻿{
+  "frameworks": {
+    "net46": {
+      "dependencies": {
+        "FSharp.Data": "2.3.2"
+      }
+    }
+  }
+}

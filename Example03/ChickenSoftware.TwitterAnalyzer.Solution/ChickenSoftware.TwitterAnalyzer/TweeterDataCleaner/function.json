@@ -1,0 +1,19 @@
+﻿{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "queueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "tweets-raw",
+      "connection": ""
+    },
+    {
+      "name": "tweets",
+      "type": "table",
+      "direction": "in",
+      "tableName": "tweets",
+      "connection": ""
+    }
+  ]
+}
