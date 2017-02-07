@@ -1,0 +1,9 @@
+{
+  "name": "controller-po-c",
+  "version": "0.0.0",
+  "description": "ControllerPoC",
+  "main": "app.js",
+  "author": {
+    "name": "Dixon"
+  }
+}

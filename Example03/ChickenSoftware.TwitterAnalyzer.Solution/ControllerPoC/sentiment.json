@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "score": "8.6",
+    "sentiment": "positive",
+    "rank": "1",
+    "user": "Greg",
+    "text": "#TRINUG Rulz"
+  },
+  {
+    "id": "1",
+    "score": "8.6",
+    "sentiment": "positive",
+    "rank": "2",
+    "user": "Justin",
+    "text": "#TRINUG is the bomb"
+  },
+  {
+    "id": "1",
+    "score": "8.6",
+    "sentiment": "neutral",
+    "rank": "3",
+    "user": "Steve",
+    "text": "#TRINUG does not suck"
+  },
+  {
+    "id": "2",
+    "score": "8.6",
+    "sentiment": "positive",
+    "rank": "4",
+    "user": "Ian",
+    "text": "Loving Azure Functions at #TRINUG"
+  },
+  {
+    "id": "2",
+    "score": "8.2",
+    "sentiment": "negative",
+    "rank": "2",
+    "user": "Joe",
+    "text": "#TRINUG blows"
+  },
+  {
+    "id": "2",
+    "score": "8.2",
+    "sentiment": "negative",
+    "rank": "3",
+    "user": "Fred",
+    "text": "Can't #TRINUG do anything right?"
+  }
+ ]

@@ -1,9 +1,11 @@
-﻿module.exports = function (context, sentimentTable) {
-    var lastRecord = sentimentTable[sentimentTable.length - 1]
-    var positiveTweets = sentimentTable.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'positive' });
-    var negativeTweets = sentimentTable.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'negative' });
-    var neutralTweets = sentimentTable.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'neutral' });
-
+﻿
+var fs = require('fs');
+fs.readFile('sentiment.json', 'utf8', function (err, data) {
+    var obj = JSON.parse(data);
+    var lastRecord = obj[obj.length - 1]
+    var positiveTweets = obj.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'positive' });
+    var negativeTweets = obj.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'negative'});
+    var neutralTweets = obj.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'neutral'});
     var body = "<!DOCTYPE html> <html> <head> </head> <body> ";
     body += "<b>Overall sentiment score = " + lastRecord.score + "</b>";
     body += "<br>"
@@ -32,13 +34,8 @@
         body += "<br>";
     }
     body += " </body> </html>";
+    console.log(body);
+});
 
-    context.res = {
-        body: body,
-        headers: {
-            'Content-Type': 'text/html; charset=utf-8'
-        }
-    };
 
-    context.done();
-};
+

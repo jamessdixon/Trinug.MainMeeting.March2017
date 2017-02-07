@@ -2,11 +2,22 @@
   "disabled": false,
   "bindings": [
     {
-      "name": "myQueueItem",
-      "type": "queueTrigger",
+      "name": "req",
+      "type": "httpTrigger",
       "direction": "in",
-      "queueName": "twitter-analyzed",
-      "connection": "aaa"
+      "methods": [ "get" ]
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "sentimentTable",
+      "type": "table",
+      "direction": "in",
+      "tableName": "sentiment",
+      "connection": ""
     }
   ]
 }
