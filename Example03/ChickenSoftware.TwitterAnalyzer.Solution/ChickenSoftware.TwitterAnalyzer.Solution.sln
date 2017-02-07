@@ -7,6 +7,8 @@ Project("{33AD0EE8-D99B-4E14-8CD9-3F56ABEF97A2}") = "ChickenSoftware.TwitterAnal
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TwitterPoC", "TwitterPoC\TwitterPoC.fsproj", "{BBDB1737-D701-4A15-B33F-2BF50B2CC404}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "NLPPoC", "NLPPoC\NLPPoC.pyproj", "{44E7CFA2-BD13-4E58-B394-BA581A9FED84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{BBDB1737-D701-4A15-B33F-2BF50B2CC404}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBDB1737-D701-4A15-B33F-2BF50B2CC404}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBDB1737-D701-4A15-B33F-2BF50B2CC404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E7CFA2-BD13-4E58-B394-BA581A9FED84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E7CFA2-BD13-4E58-B394-BA581A9FED84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

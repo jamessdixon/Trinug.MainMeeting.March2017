@@ -2,11 +2,17 @@
   "disabled": false,
   "bindings": [
     {
-      "name": "input",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "twitter-raw",
-      "connection": ""
+      "type": "table",
+      "name": "inTable",
+      "tableName": "tweets",
+      "connection": "",
+      "direction": "in"
+    },
+    {
+      "type": "timerTrigger",
+      "name": "timerInfo",
+      "schedule": "0 1 * * * *",
+      "direction": "in"
     }
   ]
 }

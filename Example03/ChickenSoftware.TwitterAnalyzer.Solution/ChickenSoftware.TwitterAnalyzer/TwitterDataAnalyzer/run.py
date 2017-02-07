@@ -1,7 +1,7 @@
 ﻿import os
 import json
 
-input = open(os.environ['input']).read()
-tweet = json.loads(input)
-#message = "Python script processed queue message '{0}'".format(tweets[''])
-print(message)
+input = open(os.environ['inTable']).read()
+records = [json.loads(line) for line in input]
+
+print(input)
