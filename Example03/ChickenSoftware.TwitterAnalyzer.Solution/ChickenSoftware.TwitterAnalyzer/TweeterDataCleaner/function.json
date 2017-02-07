@@ -9,9 +9,16 @@
       "connection": ""
     },
     {
-      "name": "tweets",
+      "name": "tweetsIn",
       "type": "table",
       "direction": "in",
+      "tableName": "tweets",
+      "connection": ""
+    },
+    {
+      "name": "tweetsOut",
+      "type": "table",
+      "direction": "out",
       "tableName": "tweets",
       "connection": ""
     }

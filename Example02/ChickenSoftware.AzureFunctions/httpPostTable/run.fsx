@@ -34,7 +34,7 @@ let isValid (person:Person) =
     [person.firstName; person.lastName; person.address]
     |> List.forall (not << String.IsNullOrEmpty)
 
-let Run(req: HttpRequestMessage, outTable: ICollector<Person>, log: TraceWriter) =
+let Run(req: HttpRequestMessage, outTable: ICollector<Person>) =
     async {
         let! data = req.Content.ReadAsStringAsync() |> Async.AwaitTask
         let person = hydrate data
