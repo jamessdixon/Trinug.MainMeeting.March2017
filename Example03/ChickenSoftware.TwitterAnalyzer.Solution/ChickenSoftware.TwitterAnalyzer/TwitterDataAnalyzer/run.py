@@ -43,6 +43,8 @@ totalSentiment = calculateTotalSentimentScore(sentimentItems)
 final = {'runDateTime':datetime.datetime.utcnow().isoformat(), 'totalSentiment':totalSentiment,'data':sentimentItems}
 output = json.dumps(final)
 
+outputTable = open(os.environ['outTable']).read()
+
 
 
 

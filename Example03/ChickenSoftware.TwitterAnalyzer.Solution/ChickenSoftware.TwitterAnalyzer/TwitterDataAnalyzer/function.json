@@ -9,6 +9,13 @@
       "direction": "in"
     },
     {
+      "type": "table",
+      "name": "outTable",
+      "tableName": "sentiments",
+      "connection": "",
+      "direction": "out"
+    },
+    {
       "type": "timerTrigger",
       "name": "timerInfo",
       "schedule": "0 1 * * * *",
