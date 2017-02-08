@@ -20,7 +20,6 @@ def getSentimentScore(text):
         return float(data['documents'][0]['score'])
     except Exception as e:
         return 50.0
-    return
 
 def createSentimentItem(d):
     return {

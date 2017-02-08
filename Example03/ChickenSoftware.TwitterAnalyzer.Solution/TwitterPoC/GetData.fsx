@@ -52,7 +52,7 @@ let getAccessToken =
 
 let getQueryResult =
     let accessToken = getAccessToken
-    let uri = @"https://api.twitter.com/1.1/search/tweets.json?q=%40jamie_dixon&until="
+    let uri = @"https://api.twitter.com/1.1/search/tweets.json?q=%40trinug&until="
     let headerFormat = "Bearer {0}"
     let authHeader = String.Format(headerFormat, accessToken)
     ServicePointManager.Expect100Continue <- false

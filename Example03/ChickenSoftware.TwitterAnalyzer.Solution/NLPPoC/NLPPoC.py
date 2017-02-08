@@ -24,7 +24,6 @@ def getSentimentScore(text):
         return float(data['documents'][0]['score'])
     except Exception as e:
         return 50.0
-    return
 
 def createSentimentItem(d):
     return {
@@ -47,5 +46,6 @@ totalSentiment = calculateTotalSentimentScore(sentimentItems)
 
 final = {'runDateTime':datetime.datetime.utcnow().isoformat(), 'totalSentiment':totalSentiment,'data':sentimentItems}
 output = json.dumps(final)
+print(output)
 
 
