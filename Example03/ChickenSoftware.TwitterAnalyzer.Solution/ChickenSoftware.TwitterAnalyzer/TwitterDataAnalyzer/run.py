@@ -1,6 +1,4 @@
-﻿#https://text-analytics-demo.azurewebsites.net/
-#https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9
-
+﻿
 import httplib, urllib, base64, json
 
 headers = {
@@ -24,11 +22,28 @@ def getSentimentScore(text):
         return 50.0
     return
 
+def createSentimentItem(d):
+    return {
+    'user_name':d['user_name'],
+    'text': d['text'],
+    'retweet_count': d['retweet_count'],
+    'sentiment':getSentimentScore(d['text'])}
 
-#input = open(os.environ['inTable']).read()
-#records = [json.loads(line) for line in input]
-#get the last 10 max
-#for each record, get its sentement
+def calculateTotalSentimentScore(l):
+    sumProduct = sum(map(lambda d: float(d['sentiment']) * float(d['retweet_count']),l))
+    sumWeight =  sum(map(lambda d: float(d['retweet_count']),l))  
+    return sumProduct/sumWeight
+
+json_data = open(os.environ['inTable']).read()
+data = json.loads(json_data)
+sortedData = sorted(data, key=lambda tl: tl['created_at'],reverse=True)
+topData = sortedData[:10]
+sentimentItems = map(createSentimentItem, topData)
+totalSentiment = calculateTotalSentimentScore(sentimentItems)
+
+final = {'runDateTime':datetime.datetime.utcnow().isoformat(), 'totalSentiment':totalSentiment,'data':sentimentItems}
+output = json.dumps(final)
+
 
 
 
