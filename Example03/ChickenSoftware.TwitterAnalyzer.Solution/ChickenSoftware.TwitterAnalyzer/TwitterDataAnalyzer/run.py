@@ -1,5 +1,5 @@
 ﻿
-import httplib, urllib, base64, json
+import httplib, urllib, base64, json, os, datetime, uuid
 
 headers = {
     'Content-Type': 'application/json',
@@ -28,9 +28,15 @@ def createSentimentItem(d):
     'retweet_count': d['retweet_count'],
     'sentiment':getSentimentScore(d['text'])}
 
+def getWeight(retweetCount):
+    if retweetCount == 0:
+        return 1
+    else:
+        return retweetCount
+
 def calculateTotalSentimentScore(l):
-    sumProduct = sum(map(lambda d: float(d['sentiment']) * float(d['retweet_count']),l))
-    sumWeight =  sum(map(lambda d: float(d['retweet_count']),l))  
+    sumProduct = sum(map(lambda d: float(d['sentiment']) * getWeight(float(d['retweet_count'])),l))
+    sumWeight =  sum(map(lambda d: getWeight(float(d['retweet_count'])),l))  
     return sumProduct/sumWeight
 
 json_data = open(os.environ['inTable']).read()
@@ -39,12 +45,11 @@ sortedData = sorted(data, key=lambda tl: tl['created_at'],reverse=True)
 topData = sortedData[:10]
 sentimentItems = map(createSentimentItem, topData)
 totalSentiment = calculateTotalSentimentScore(sentimentItems)
+runDateTime = datetime.datetime.utcnow().isoformat()
+partitionKey = 'TRINUG'
+rowKey = str(uuid.uuid4())
 
-final = {'runDateTime':datetime.datetime.utcnow().isoformat(), 'totalSentiment':totalSentiment,'data':sentimentItems}
-output = json.dumps(final)
+final = {'partitionKey':partitionKey,'rowKey':rowKey,'runDateTime':runDateTime,'data':sentimentItems,'totalSentiment':totalSentiment}
+output = "[" + json.dumps(final) + "]"
 
-outputTable = open(os.environ['outTable']).read()
-
-
-
-
+open(os.environ['outTable'], 'wb').write(output)
