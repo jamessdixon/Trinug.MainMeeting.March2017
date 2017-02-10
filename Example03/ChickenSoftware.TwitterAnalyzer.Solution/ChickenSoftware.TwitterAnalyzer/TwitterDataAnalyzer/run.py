@@ -50,4 +50,5 @@ partitionKey = 'TRINUG'
 rowKey = str(uuid.uuid4())
 
 output = json.dumps({'partitionKey':partitionKey,'rowKey':rowKey,'runDateTime':runDateTime,'data':sentimentItems,'totalSentiment':totalSentiment})
-open(os.environ['outBlob'], 'wb').write(output)
+open(os.environ['outBlob'], 'w+').write(output)
+
