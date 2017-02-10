@@ -19,7 +19,7 @@ def getSentimentScore(text):
         data =  json.loads(json_data)
         return float(data['documents'][0]['score'])
     except Exception as e:
-        return 50.0
+        return .5
 
 def createSentimentItem(d):
     return {
@@ -49,7 +49,5 @@ runDateTime = datetime.datetime.utcnow().isoformat()
 partitionKey = 'TRINUG'
 rowKey = str(uuid.uuid4())
 
-final = {'partitionKey':partitionKey,'rowKey':rowKey,'runDateTime':runDateTime,'data':sentimentItems,'totalSentiment':totalSentiment}
-output = "[" + json.dumps(final) + "]"
-
-open(os.environ['outTable'], 'wb').write(output)
+output = json.dumps({'partitionKey':partitionKey,'rowKey':rowKey,'runDateTime':runDateTime,'data':sentimentItems,'totalSentiment':totalSentiment})
+open(os.environ['outBlob'], 'wb').write(output)

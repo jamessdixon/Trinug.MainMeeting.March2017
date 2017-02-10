@@ -9,9 +9,9 @@
       "direction": "in"
     },
     {
-      "type": "table",
-      "name": "outTable",
-      "tableName": "sentiments",
+      "type": "blob",
+      "name": "outBlob",
+      "path": "sentiment/sentiment.json",
       "connection": "",
       "direction": "out"
     },

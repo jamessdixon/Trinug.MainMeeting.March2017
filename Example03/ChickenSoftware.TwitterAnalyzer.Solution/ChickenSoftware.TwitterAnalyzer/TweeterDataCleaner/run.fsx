@@ -36,6 +36,9 @@ let hydrate data =
     tweetLite.retweet_count <- getValue json.["retweet_count"]
     tweetLite
 
+let cleanTweet (tweetLite:TweetLite) =
+    tweetLite.text <- tweetLite.text.Replace("…","")
+
 let Run (queueItem: string, tweetsIn: IQueryable<TweetLite>, tweetsOut: ICollector<TweetLite>) =  
     let newTweet = hydrate queueItem
     let foundTweet =
@@ -44,5 +47,6 @@ let Run (queueItem: string, tweetsIn: IQueryable<TweetLite>, tweetsOut: ICollect
     match foundTweet with
     | Some ft -> ()
     | None ->
+        cleanTweet(newTweet)
         tweetsOut.Add(newTweet)
 

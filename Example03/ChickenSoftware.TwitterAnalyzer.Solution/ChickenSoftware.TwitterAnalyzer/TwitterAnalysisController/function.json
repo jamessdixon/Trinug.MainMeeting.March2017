@@ -13,11 +13,11 @@
       "direction": "out"
     },
     {
-      "name": "sentimentTable",
-      "type": "table",
-      "direction": "in",
-      "tableName": "sentiment",
-      "connection": ""
+      "type": "blob",
+      "name": "inBlob",
+      "path": "sentiment/sentiment.json",
+      "connection": "",
+      "direction": "in"
     }
   ]
 }

@@ -1,13 +1,12 @@
 ﻿
 var fs = require('fs');
-fs.readFile('sentiment.json', 'utf8', function (err, data) {
-    var obj = JSON.parse(data);
-    var lastRecord = obj[obj.length - 1]
-    var positiveTweets = obj.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'positive' });
-    var negativeTweets = obj.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'negative'});
-    var neutralTweets = obj.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'neutral'});
+fs.readFile('sentiment.json', 'utf8', function (err, blob) {
+    var analysis = JSON.parse(blob);
     var body = "<!DOCTYPE html> <html> <head> </head> <body> ";
-    body += "<b>Overall sentiment score = " + lastRecord.score + "</b>";
+    body += "<b>Overall sentiment score = " + analysis.totalSentiment + "</b>";
+    var positiveTweets = analysis.data.filter(function (x) { return x.sentiment >= 75 });
+    var negativeTweets = analysis.data.filter(function (x) { return x.sentiment <= 25 });
+    var neutralTweets = analysis.data.filter(function (x) { return x.sentiment > 25 && x.sentiment < 75 });
     body += "<br>"
     body += "<b>Positive Tweets</b>";
     body += "<br>"

@@ -1,43 +1,50 @@
-﻿module.exports = function (context, sentimentTable) {
+﻿module.exports = function (context, inBlob) {
     var body = "<!DOCTYPE html> <html> <head> </head> <body> ";
-
-    if (sentimentTable.length > 0) {
-        var lastRecord = sentimentTable[sentimentTable.length - 1]
-        var positiveTweets = sentimentTable.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'positive' });
-        var negativeTweets = sentimentTable.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'negative' });
-        var neutralTweets = sentimentTable.filter(function (x) { return x.id == lastRecord.id && x.sentiment == 'neutral' });
-
-        body += "<b>Overall sentiment score = " + lastRecord.score + "</b>";
+    
+    if (inBlob != null) {
+        var analysis = context.bindings.inBlob;
+        body += "<b>Overall sentiment score = " + analysis.totalSentiment + "</b>";
+        var positiveTweets = analysis.data.filter(function (x) { return x.sentiment >= .75 });
+        var negativeTweets = analysis.data.filter(function (x) { return x.sentiment <= .25 });
+        var neutralTweets = analysis.data.filter(function (x) { return x.sentiment > .25 && x.sentiment < .75 });
         body += "<br>"
         body += "<b>Positive Tweets</b>";
         body += "<br>"
         for (var t in positiveTweets) {
-            body += positiveTweets[t].user;
+            body += positiveTweets[t].user_name;
             body += " - ";
             body += positiveTweets[t].text;
+            body += " (";
+            body += positiveTweets[t].sentiment;
+            body += " )";
             body += "<br>";
         }
         body += "<b>Negative Tweets</b>";
         body += "<br>"
         for (var t in negativeTweets) {
-            body += negativeTweets[t].user;
+            body += negativeTweets[t].user_name;
             body += " - ";
             body += negativeTweets[t].text;
+            body += " (";
+            body += negativeTweets[t].sentiment;
+            body += " )";
             body += "<br>";
         }
         body += "<b>Neutral Tweets</b>";
         body += "<br>"
         for (var t in neutralTweets) {
-            body += neutralTweets[t].user;
+            body += neutralTweets[t].user_name;
             body += " - ";
             body += neutralTweets[t].text;
+            body += " (";
+            body += neutralTweets[t].sentiment;
+            body += " )";
             body += "<br>";
         }
     }
     else {
         body += "No Analysis Yet...";
     }
-
     body += " </body> </html>";
 
     context.res = {

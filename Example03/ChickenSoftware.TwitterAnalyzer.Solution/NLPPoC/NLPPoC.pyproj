@@ -25,6 +25,7 @@
     <Compile Include="NLPPoC.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TweetLite2.json" />
     <Content Include="TweetLite.json" />
   </ItemGroup>
   <PropertyGroup>
