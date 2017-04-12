@@ -30,7 +30,6 @@ let inline getChildValue (value:JToken) =
         value.Value<string>()  
     | true -> ""
 
-
 let hydrate data = 
     let json = JObject.Parse(data)
     let tweetLite = TweetLite()
@@ -41,7 +40,7 @@ let hydrate data =
     tweetLite.retweet_count <- getValue json.["retweet_count"]
     tweetLite
 
-let data = File.ReadAllText(__SOURCE_DIRECTORY__ + "\sampleTweet.json")
+let data = File.ReadAllText(__SOURCE_DIRECTORY__ + "\sampleTweet2.json")
 let data' = hydrate data
 
 //type TweetContext = JsonProvider<"sampleTweet.json">
@@ -54,7 +53,6 @@ let data' = hydrate data
 
 printfn "User Name: %s" data'.user_name
 printfn "Id: %s" data'.id
-
 
 
 

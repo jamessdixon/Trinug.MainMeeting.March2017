@@ -23,7 +23,7 @@ def getSentimentScore(text):
         data =  json.loads(json_data)
         return float(data['documents'][0]['score'])
     except Exception as e:
-        return 50.0
+        return 50.999
 
 def createSentimentItem(d):
     return {
@@ -37,7 +37,7 @@ def calculateTotalSentimentScore(l):
     sumWeight =  sum(map(lambda d: float(d['retweet_count']),l))  
     return sumProduct/sumWeight
 
-json_data = open('TweetLite2.json').read()
+json_data = open('TweetLite.json').read()
 data = json.loads(json_data)
 sortedData = sorted(data, key=lambda tl: tl['created_at'],reverse=True)
 topData = sortedData[:10]

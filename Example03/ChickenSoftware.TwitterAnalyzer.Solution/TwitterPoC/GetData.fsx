@@ -50,6 +50,8 @@ let getAccessToken =
     let token = JsonConvert.DeserializeObject<BearerToken>(responseJson)
     token.access_token
 
+    //40 - > @
+    //23 -> #
 
 let getQueryResult token =
     let accessToken = getAccessToken
@@ -67,8 +69,6 @@ let getQueryResult token =
     let tweets = TweetContext.Parse(responseJson)
     tweets.Statuses
 
-//https://twitter.com/PatMcCroryNC
-//https://twitter.com/RoyCooperNC
+getQueryResult "TRINUG"
 
-getQueryResult "PatMcCroryNC"
 
